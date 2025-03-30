@@ -1,4 +1,4 @@
-Práctica: Hyperledger Fabric Keepcoding
+![image](https://github.com/user-attachments/assets/554c89b2-41f5-42aa-9670-ef646f8dea47)Práctica: Hyperledger Fabric Keepcoding
 
 Víctor García Delgado
 
@@ -15,16 +15,12 @@ cd fabric-samples
 
 ## 2 Configuramos la red test-network
 La red de prueba por defecto tiene dos organizaciones, pero para este caso de uso debemos agregar una tercera organización.
+![image](https://github.com/user-attachments/assets/bf47b34c-b6ac-4561-8bd7-1825368bef41)
 
-2.1 Agregar la organización Distribuidor
-  1. Copiar la configuración de una de las organizaciones existentes (Org1 o Org2) y modificarla para que sea la Organización Distribuidor
-  2. Editar los archivos de configuración en test-network para incluir la nueva organización.
-  3. Modificar configtx.yaml para agregar la definición de la nueva organización.
-     
+2.1 Agregar la organización Distribuidor  
+
 2.2 Generamos los artefactos de configuración
-Ejecutar los siguientes comandos para regenerar los certificados y la configuración de la red
-  ./network.sh down
-  ./network.sh up createChannel -ca
+
   
 ## 3 Implementar el chaincode
 3.1 Crear un nuevo chaincode
@@ -35,12 +31,8 @@ Ejecutar los siguientes comandos para regenerar los certificados y la configurac
   ./network.sh deployCC -ccn supplychain -ccp ../chaincode/supplychain -ccl go
 
 ## 4 Probamos la red
-Ejecutar comandos en la CLI para registrar productos y cambiar su estado, por ejemplo: 
+Ejecutar transacciones prara  en la CLI para registrar productos y cambiar su estado, por ejemplo: 
 
-peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls \
---cafile $ORDERER_CA -C mychannel -n supplychain \
---peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
--c '{"Args":["RegistrarProducto", "123", "Fabricado"]}'
-
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" --peerAddresses localhost:11051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
 
   
