@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/554c89b2-41f5-42aa-9670-ef646f8dea47)Práctica: Hyperledger Fabric Keepcoding
+Práctica: Hyperledger Fabric Keepcoding
 
 Víctor García Delgado
 
