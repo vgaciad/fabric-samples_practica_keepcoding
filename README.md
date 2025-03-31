@@ -3,7 +3,7 @@ Práctica: Hyperledger Fabric Keepcoding
 Víctor García Delgado
 
 Entregas:
- 1. Readme.md (Todo el detalle se encuentre en la memoria. Link publico de abajo)
+ 1. Readme.md (Todo el detalle se encuentre en la memoria. Link publico de abajo y adjunta como fichero)
  2. Doc adjunto: Guía de ejecución de la práctica (https://drive.google.com/file/d/1CPoHG8uxNDH9q5eZBPy_wmbtet8blOxy/view?usp=drive_link)
  4. Enlace de git: https://github.com/vgaciad/fabric-samples_practica_keepcoding/ con el fork de la red de Hyperledger con los cambios realizados
 
